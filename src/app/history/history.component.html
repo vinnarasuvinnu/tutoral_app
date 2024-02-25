@@ -1,0 +1,18 @@
+<app-loader *ngIf="show_spiner"></app-loader>
+
+<div *ngIf="!show_spiner" class="container">
+    <br>
+    <p class="myclass">My Courses</p>
+    <br>
+    <br>
+    <br>
+
+    <mat-list *ngFor="let item of courseResult;let i=index">
+
+        <p class="titles"> {{courseResult[i].course_type}}</p>
+        <br>
+        <app-card [items]="courseResult[i].courses"></app-card>
+        <br>
+        <br>
+    </mat-list>
+</div>

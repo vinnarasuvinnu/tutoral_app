@@ -1,0 +1,64 @@
+<app-loader *ngIf="show_spiner"></app-loader>
+
+<div *ngIf="!show_spiner" class="container">
+
+    <div class="col-md-12 text-center" *ngIf="weekMeetData.length==0">
+        <img src="assets/images/noNews.svg" width="100%">
+        <h6>No results found</h6>
+    </div>
+    <div *ngFor="let item of weekMeetData;let i=index">
+        <mat-card>
+
+            <div class="row ">
+                <p style="text-align: left; " class="parasmallbottom">
+                    Week meet {{i+1}}
+
+                </p>
+
+            </div>
+            <div class="row ">
+                <div class="col-md-6">
+
+                    <div class="d-flex ">
+                        <div class="timer ">
+                            <h2 id="days{{item.id}}"> 00</h2>
+                            <p class="timer_text" style=" font-size: 12px;">days</p>
+                        </div>
+                        <div style="padding-right: 20px;"></div>
+
+                        <div class="timer left_space ">
+                            <h2 id="hours{{item.id}}"> 00</h2>
+                            <p class="timer_text" style=" font-size: 12px;">hours</p>
+                        </div>
+                        <div style="padding-right: 20px;"></div>
+                        <div class="timer left_space ">
+
+                            <h2 id="mins{{item.id}}"> 00</h2>
+                            <p class="timer_text" style=" font-size: 12px;">minutes</p>
+                        </div>
+                        <div style="padding-right: 20px;"></div>
+
+                        <div class="timer left_space ">
+
+                            <h2 id="seconds{{item.id}}"> 00</h2>
+                            <p class="timer_text" style=" font-size: 12px;">seconds</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" style="padding: 20px;">
+                    <button mat-button id="block{{item.id}}" color="primary" class="buttonClassGray">Join Meeting</button>
+
+                    <a style="display: none;" id="getin{{item.id}}" href="{{item.meeting_link}}">
+                        <button mat-button color="primary" class="buttonClass">Join Meeting</button>
+                    </a>
+
+
+                </div>
+            </div>
+
+        </mat-card>
+        <div style="padding-bottom: 40px;"></div>
+
+    </div>
+</div>

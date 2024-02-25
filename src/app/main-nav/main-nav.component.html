@@ -1,0 +1,62 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav style="width: 100px;background-color: #293877 ;" #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <!-- <mat-toolbar style="background-color: white !important;height: 80px; ">
+            <img src="assets/images/appicon.png" class="img-fluid img-responsive " />
+        </mat-toolbar> -->
+        <mat-nav-list class="text-center" >
+            <a (click)="goToHome()" class="listClass" mat-list-item routerLink="/homepage" routerLinkActive="active-list-item">
+                <mat-icon class="iconClass">desktop_mac</mat-icon>
+            </a>
+            <a (click)="goToTask()" class="listClass" mat-list-item routerLink="/task" routerLinkActive="active-list-item">
+                <mat-icon class="iconClass">assignment</mat-icon>
+            </a>
+            <a class="listClass" mat-list-item (click)="goToHistory()" routerLink="/history" routerLinkActive="active-list-item">
+                <mat-icon class="iconClass">code</mat-icon>
+            </a>
+            <a (click)="goToInterview()" class="listClass" mat-list-item routerLink="/interview" routerLinkActive="active-list-item">
+                <mat-icon class="iconClass">group</mat-icon>
+            </a>
+            <a class="listClass" mat-list-item (click)="goToWeekMeet()" routerLink="/weekMeet" routerLinkActive="active-list-item">
+                <mat-icon class="iconClass">insert_invitation</mat-icon>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content style="padding-top:100px ; padding-bottom: 20px;">
+
+        <mat-toolbar class="my-toolbar">
+
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+            <a (click)="reload()">
+                <img src="assets/images/logocoding.svg" id="main-img" alt="">
+            </a>
+            <div class="ms-auto btn-group">
+
+                <!-- <input type="text" placeholder="Search" class="searchBox form-control">
+                <mat-icon class="searchIcon">search</mat-icon> -->
+
+
+                <h6>
+                    <mat-spinner *ngIf="show_spiner" diameter="50" class="spinner"></mat-spinner>
+
+                    <mat-icon *ngIf="!show_spiner" (click)="goToNotification()" [matBadgeHidden]="profileModel.notification==0" matBadge="{{profileModel.notification}}" matBadgePosition="after" matBadgeColor="warn" class="iconSize">notification_important</mat-icon>
+
+
+                    <span *ngIf="!show_spiner" [matMenuTriggerFor]="menu"><img  class="profile" src="{{profileModel.image}}" alt="profile"  ></span>
+                    <mat-menu class="menu" #menu="matMenu" style="font-family: 'Poppins';font-size: 14px;">
+
+
+                        <button class="menuTop" mat-menu-item (click)="goToProfile()">Profile</button>
+                        <button class="menuTop" mat-menu-item (click)="logout()">Logout</button>
+
+
+
+                    </mat-menu>
+                </h6>
+
+            </div>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,215 @@
+<app-loader *ngIf="show_spiner"></app-loader>
+<div *ngIf="!show_spiner" class="container">
+    <p class="titles">Web developement & complete HTML learning</p>
+    <br>
+    <div class="row">
+        <div class="col-md-7">
+            <video controls controlsList="nodownload" class="video-size">
+            <source src= "{{firstVideo.video}}"                    
+            type="video/mp4 " />
+            Browser not supported
+            </video>
+            <br>
+            <br>
+            <p class="para-black-bold">{{firstVideo.title}}</p>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+
+                        <div class="col-6">
+                            <p class="para-black">English</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="para-black">{{courseResultData.enrolled}} Enrolled</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+
+                        <div class="col-6">
+                            <p class="para-black">{{courseResultData.course_time}}</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="para-black">Students Rating: {{courseResultData.rating}}</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+
+            <div *ngIf="!is_subscribe" class="row vertical-align-content">
+                <div class="col-md-7">
+                    <div class="row vertical-align-content">
+
+                        <div class="col-3">
+                            <p class="para-gray"><s>₹{{courseResultData.original_amount}}</s></p>
+                        </div>
+                        <div class="col-3">
+                            <p class="para-gray">₹{{courseResultData.offer_amount}}</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="para-gray">
+                                Save ₹{{courseResultData.difference}} ({{courseResultData.percentage}}% offer)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <mat-spinner *ngIf="show_loader " diameter="50 " class="loader "></mat-spinner>
+                    <button *ngIf="!show_loader " (click)="goToSubscription()" class="buttonClass " mat-button color="primary">
+                        Get this Course
+                       <!-- <mat-icon class="iconClass">chevron_right</mat-icon> -->
+                   </button>
+                </div>
+            </div>
+            <br>
+            <p class="para-black-bold">Video Description</p>
+            <br>
+            <p>
+                {{firstVideo.description}}
+            </p>
+            <br>
+            <p class="para-black-bold-big">Course Content</p>
+            <br>
+            <div *ngIf="!is_subscribe">
+
+                <div class="row" *ngFor="let item of videoList;let i=index" (click)="goToSubscription()">
+
+                    <div class="col-5">
+                        <img class="imgsize" src="{{videoList[i].thumbnail}}" alt="Course">
+
+                    </div>
+                    <div class="col-7">
+                        <p class="para-black-bold"> {{videoList[i].title}}</p>
+                        <p class="text">
+                            {{videoList[i].description}}
+
+                        </p>
+                    </div>
+                    <div style="padding-bottom: 40px;"></div>
+                </div>
+            </div>
+
+            <div *ngIf="is_subscribe">
+
+                <div class="row" *ngFor="let item of videoList;let i=index" (click)="changeVideo(i)">
+
+                    <div class="col-5">
+                        <img class="imgsize" src="{{videoList[i].thumbnail}}" alt="Course">
+
+                    </div>
+                    <div class="col-7">
+                        <p class="para-black-bold"> {{videoList[i].title}}</p>
+                        <p class="text">
+                            {{videoList[i].description}}
+
+                        </p>
+                    </div>
+                    <div style="padding-bottom: 40px;"></div>
+                </div>
+            </div>
+            <br>
+
+
+        </div>
+
+        <div class="col-md-5">
+            <div class="coder-container">
+                <div style="padding: 20px;">
+                    <p class="coder-textstyle " id="copy">
+                        Ask doubt and get solution
+                    </p>
+                    <br>
+                    <mat-list id="scroller">
+                        <div class="row" *ngFor="let item of courseDoubts;let i=index">
+                            <div class="col-2">
+                                <img class="imground" src="{{courseDoubts[i].image}}" alt="Course">
+                            </div>
+                            <div class="col-10">
+                                <p class="para-black">{{courseDoubts[i].name}}</p>
+                                <p class="para-small">{{courseDoubts[i].date}}</p>
+                                <p class="para-small">{{courseDoubts[i].question}}</p>
+                                <p class="para-small" *ngIf="courseDoubts[i].answer">Reply: {{courseDoubts[i].answer}}</p>
+                            </div>
+                            <div style="padding-bottom: 10px;"></div>
+
+                        </div>
+                    </mat-list>
+
+                    <div class="row move-bottom text-center">
+                        <div class="col-10">
+                            <input type="text" #question required class="form-control textBox" id="question" placeholder="Add your doubts*">
+
+                        </div>
+                        <div class="col-2">
+                            <button (click)="sendDoubts()" class="buttonClass-send" mat-button color="primary">
+                                Send
+                           </button>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <br>
+            <br>
+            <p class="para-black-bold">Course benefits</p>
+
+            <ul style="padding-left: 20px;padding-top: 10px;">
+                <li style="padding-top:10px" *ngFor="let item of aboutCourse.benefits;let i=index">{{aboutCourse.benefits[i]}}</li>
+            </ul>
+            <br>
+            <br>
+            <p class="para-black-bold">Requirments</p>
+
+            <ul style="padding-left: 20px;padding-top: 10px;">
+                <li style="padding-top:10px" *ngFor="let item of aboutCourse.requirements;let i=index">{{aboutCourse.requirements[i]}}</li>
+
+
+            </ul>
+            <br>
+            <p class="para-black-bold">About Author</p>
+            <br>
+            <p>{{aboutCourse.authors[0]}}
+            </p>
+            <p class="para-black-bold">Certificate of Completion</p>
+
+            <ul style="padding-left: 20px;padding-top: 10px;">
+                <li style="padding-top:10px">Certificates are globally recognised</li>
+                <li style="padding-top:10px">Certificates are generated after completion of the course</li>
+                <li style="padding-top:10px">Certificates are sent to your registered email id</li>
+
+            </ul>
+            <br>
+
+            <button class="buttonClass " *ngIf="!certificate.status" (click)="claimCertificate(1)" mat-button style="background-color:rgb(0, 89, 0);">
+                Claim for certificate
+               <!-- <mat-icon class="iconClass">chevron_right</mat-icon> -->
+           </button>
+            <button *ngIf="certificate.status=='processing'" class="buttonClass " mat-button style="background-color:blue;">
+            Processing certificate
+           <!-- <mat-icon class="iconClass">chevron_right</mat-icon> -->
+       </button>
+            <br>
+            <br>
+            <p *ngIf="!certificate.status">Note:Certificates are generated after completion of the course,Certificates are generated after completion of the course.</p>
+            <br>
+
+            <button class="buttonClass " *ngIf="!certificate.status" (click)="claimCertificate(2)" mat-button style="background-color:rgb(0, 89, 0);">
+                Claim for certificate with interview
+               <!-- <mat-icon class="iconClass">chevron_right</mat-icon> -->
+           </button>
+            <br>
+            <br>
+            <p *ngIf="!certificate.status">Note:Certificates are generated after completion of the course,Certificates are generated after completion of the course.</p>
+            <br>
+            <img class="imgsize" *ngIf="certificate.certificate" src="{{certificate.certificate}}" alt="Course">
+
+        </div>
+    </div>
+</div>

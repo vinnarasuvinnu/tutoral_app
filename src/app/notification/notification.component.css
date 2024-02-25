@@ -1,0 +1,76 @@
+.profile {
+    vertical-align: middle;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.icon-display {
+    transform: scale(1.6);
+}
+
+#scroller {
+    height: 100vh;
+    width: 100%;
+    overflow: scroll;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.imground {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+.para-black-bold {
+    color: black;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0%;
+}
+
+.para-black-bold-big {
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 0%;
+}
+
+.para-black {
+    color: black;
+    font-weight: 500;
+    font-size: 14px;
+    margin: 0%;
+}
+
+.para-small {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 0%;
+}
+
+.para-gray {
+    color: gray;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0%;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    overflow: hidden;
+}

@@ -1,0 +1,58 @@
+<app-loader *ngIf="show_spiner"></app-loader>
+
+
+<div *ngIf="!show_spiner " id="scroller" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" [scrollWindow]="false" (scrolled)="onScrollDown()">
+    <div class="container">
+
+        <p class="titles">Total tasks given for coders: {{taskModel.count}}</p>
+        <br>
+
+        <mat-list *ngFor="let item of taskModel.results; let i=index">
+            <p class="para">Date: {{taskModel.results[i].date}}</p>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-5">
+                    <p class="para-black">Task</p>
+                    <div class="coder-container">
+                        <div style="padding: 20px;">
+                            <pre class="coder-textstyle" id="copy">
+                            <code>
+                                {{taskModel.results[i].question}}
+                            </code>
+                        </pre>
+                            <br>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-9"></div>
+                                <div class="button-div col-md-3 ">
+                                    <button (click)="copyText(taskModel.results[i].question)" class="buttonClass " mat-button color="primary">
+                                 Copy & Try
+                                <!-- <mat-icon class="iconClass">chevron_right</mat-icon> -->
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <div class="col-md-1"></div>
+
+                <div class="col-md-6 solution">
+                    <p class="para-black">Solution</p>
+
+                    <video controls controlsList="nodownload" class="video-size">
+                    <source src=
+            
+                    "{{taskModel.results[i].solution}}"                    
+                    type="video/mp4 " />
+                    Browser not supported
+                </video>
+                </div>
+            </div>
+        </mat-list>
+
+
+    </div>
+
+</div>

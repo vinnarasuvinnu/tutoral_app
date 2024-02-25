@@ -1,0 +1,47 @@
+
+.buttonClass{
+    width: 100%;
+    padding: 10px;
+    background: #5958F0 0% 0% no-repeat padding-box;
+    color:white;
+    border-radius: 14px;
+
+}
+.textBox{
+    height: 50px !important;
+    border-radius: 10px;
+}
+.optionClass{
+    font-weight:500;
+}
+
+.dropClass{
+    height: 150px;
+    width: 150px;
+    object-fit: contain;
+    margin-top: 30px;
+}
+.imgText{
+    color: #383737;
+    padding-left: 10px;
+    font-weight: 500;
+}
+.topClass{
+    margin-top: 50px;
+
+}
+
+
+.buttonClassSecondary{
+    width: 100%;
+    padding: 5px;
+    margin-left: 10px;
+    background: #505050 0% 0% no-repeat padding-box;
+    color:white;
+    border-radius: 14px;
+
+}
+
+input[type="file"] {
+    display: none;
+}

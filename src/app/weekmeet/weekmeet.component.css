@@ -1,0 +1,44 @@
+.buttonClass {
+    width: 100%;
+    padding: 2px;
+    background: #5958F0 0% 0% no-repeat padding-box;
+    color: white;
+    border-radius: 14px;
+    position: relative;
+    /* bottom: 0;
+    left: 0; */
+}
+
+.buttonClassGray {
+    width: 100%;
+    padding: 2px;
+    background: gray 0% 0% no-repeat padding-box;
+    color: white;
+    border-radius: 14px;
+    position: relative;
+    /* bottom: 0;
+    left: 0; */
+}
+
+.timer {
+    height: 60px;
+    text-align: center;
+    width: 60px;
+    background-color: #293877;
+    color: white;
+    border-radius: 5px;
+    align-items: center;
+    padding: 5px;
+}
+
+h2 {
+    margin-bottom: 0px;
+}
+
+.left_space {
+    margin-left: 15px;
+}
+
+.timer_text {
+    color: white;
+}

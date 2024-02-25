@@ -1,0 +1,18 @@
+<input type="text" class="form-control mt-5 textBox topClass" id="mobile_otp" placeholder="Mobile number*">
+
+
+<button class="buttonClass mt-5" (click)="sendOtp()" id="sendOtp" mat-button color="primary">Send Otp</button>
+
+
+<input type="text" class="form-control mt-5 textBox" id="otp_value" placeholder="Otp*">
+
+<h3 id="resendOtp" (click)="resendOtp()" class="text-right mt-5 optionClass forgotClass">Resend otp</h3>
+
+
+<button (click)="saveOtp()" class="buttonClass mt-2" id="toPassword" mat-button color="primary">Submit</button>
+
+
+
+<button class="buttonClass mt-2" id="toLoginOtp" mat-button color="primary">Go Back To Login</button>
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>

@@ -1,0 +1,125 @@
+.myclass {
+    color: black;
+    font-weight: 500;
+    font-size: 35px;
+}
+
+.titles {
+    color: #5958f0;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.parabold {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 3%;
+}
+
+.card-img {
+    border-radius: 5px 5px 0px 0px;
+}
+
+.parasmall {
+    color: rgb(54, 54, 54);
+    font-size: 10px;
+    margin: 3%;
+}
+
+.parasmallbottom {
+    color: rgb(54, 54, 54);
+    font-size: 10px;
+    margin: 0%;
+}
+
+.child {
+    /* ... */
+    position: absolute;
+    bottom: -6%;
+    left: 0%;
+}
+
+.parent {
+    position: relative;
+}
+
+.example-card {
+    max-width: 300px;
+    /* padding: 5px 5px 5px 5px; */
+    padding: 0px !important;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.custom.mat-card {
+    margin: 5px;
+    padding: 5px;
+}
+
+mat-card img {
+    object-fit: cover;
+    /*this makes the image in src fit to the size specified below*/
+    height: 200px;
+    /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+    width: 300px;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.row {
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+:host {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.policy-card {
+    width: 80%;
+    min-width: 280px;
+    height: 70%;
+    min-height: 280px;
+    margin: auto;
+    font-weight: unset !important;
+    box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.header-image {
+    background-color: #44c2cc;
+}
+
+.text-container {
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

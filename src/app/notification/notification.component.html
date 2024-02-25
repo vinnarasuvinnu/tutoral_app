@@ -1,0 +1,31 @@
+<app-loader *ngIf="show_spiner"></app-loader>
+<div *ngIf="!show_spiner" id="scroller" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" [scrollWindow]="false" (scrolled)="onScrollDown()" class="container">
+
+    <button type="button" (click)="back()" style="background-color: transparent;border-color: transparent; font-size: 20px;">
+        <mat-icon style="font-size:20px ;">arrow_back</mat-icon>  Back </button>
+
+
+
+    <div class="col-md-12 text-center" *ngIf="noCourse">
+        <img src="assets/images/noNews.svg" width="100%">
+        <h6>No results found</h6>
+    </div>
+
+    <mat-card *ngFor="let item of notificationModel.results; let i=index">
+        <div class="row">
+            <div class="col-2">
+                <img class="imground" src="{{notificationModel.results[i].image}}" alt="Course">
+            </div>
+            <div class="col-10">
+                <p class="para-black">{{notificationModel.results[i].title}}</p>
+                <p class="para-small">{{notificationModel.results[i].description}}</p>
+                <p class="para-small">33 mnt</p>
+            </div>
+        </div>
+
+
+
+    </mat-card>
+
+</div>
+<mat-spinner *ngIf="show_loader" diameter="50" class="spinner center"></mat-spinner>

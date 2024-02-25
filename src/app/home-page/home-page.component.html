@@ -1,0 +1,61 @@
+<app-loader *ngIf="show_spiner"></app-loader>
+<div *ngIf="!show_spiner" class="container">
+
+    <ngb-carousel *ngIf="homeBanners">
+        <ng-template ngbSlide *ngFor="let item of homeBanners;let i=index">
+            <div class="view w-100">
+                <a *ngIf="homeBanners[i].link!=''" href="{{homeBanners[i].link}}">
+                    <img class="img-fluid img-responsive imgsize" src="{{homeBanners[i].image}}" alt="image{{i}}">
+                </a>
+                <img *ngIf="homeBanners[i].link==''" class="img-fluid img-responsive imgsize" src="{{homeBanners[i].image}}" alt="image{{i}}">
+            </div>
+        </ng-template>
+    </ngb-carousel>
+    <br>
+    <br>
+    <br>
+    <p class="coders-task">Today's Task for coders</p>
+    <div class="coder-container">
+        <div style="padding:20px;" class="row">
+            <div class="col-md-6">
+                <pre class="coder-textstyle">
+                    <code>{{homeTask.description}}</code>
+                </pre>
+            </div>
+            <div class="col-md-4">
+            </div>
+            <br>
+            <br>
+            <div class="col-md-2  button-div ">
+                <button class="buttonClass " (click)="goToTask()" mat-button color="primary">
+                    Click here
+                    <mat-icon class="iconClass">chevron_right</mat-icon>
+                
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <p class="myclass">Courses</p>
+
+    <br>
+    <br>
+
+    <mat-spinner *ngIf="show_spiner" diameter="50" class="spinner"></mat-spinner>
+
+    <mat-list *ngFor="let item of courseResult;let i=index">
+
+        <p class="titles"> {{courseResult[i].course_type}}</p>
+        <br>
+        <app-card [items]="courseResult[i].courses"></app-card>
+        <br>
+        <br>
+    </mat-list>
+</div>
+
+

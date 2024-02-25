@@ -1,0 +1,29 @@
+<input type="text" class="form-control mt-2 textBox" id="username_register" placeholder="Username*">
+<input type="email" class="form-control mt-2 textBox" id="mail" placeholder="Email*">
+<input type="password" class="form-control mt-2 textBox" id="password_register" placeholder="Password*">
+<small id="emailHelp" class="form-text text-muted mt-2">Note: Password must be 8 letters</small>
+
+<input type="password" class="form-control mt-2 textBox" id="confirm_password" placeholder="Confirm Password*">
+<small id="emailHelp" class="form-text text-muted mt-2">Note: Password must be 8 letters</small>
+<br>
+
+
+<div class="btn-group">
+    <label>
+        <span style="color:red;" *ngIf="message">{{message}}</span>
+
+<img [src]="imgURL" class="img-fluid img-responsive dropClass">
+<input #file type="file"  accept='image/*' id="photo" (change)="preview(file.files)"/>
+</label>
+    <div>
+        <p class="imgText topClass pl-5">Upload Profile Picture (optional)</p>
+        <p class="imgText pl-5">Image Formats: JPEG, JPG & PNG</p>
+        <button class="buttonClassSecondary mt-1" mat-button id="removeButton" (click)="removeImage()">Remove Profile Picture</button>
+
+    </div>
+</div>
+
+<button class="buttonClass mt-3" (click)="registerUser()" id="register_signup" mat-button color="primary">Signup</button>
+
+<button class="buttonClass mt-2" id="toLogin" mat-button color="primary">Go Back To Login</button>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>

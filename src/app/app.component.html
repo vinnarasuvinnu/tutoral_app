@@ -1,0 +1,11 @@
+<div *ngIf="get_login_info();else other_content">
+  <app-main-nav></app-main-nav>
+
+</div>
+
+<ng-template #other_content>
+      <app-login></app-login>
+      <!-- <app-main-nav></app-main-nav> -->
+
+
+</ng-template>
