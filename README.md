@@ -1,3 +1,9 @@
+Requirements:
+    node, npm 
+    
+# to run the prject first try running this command:
+    npm install
+    
 # MyVisionPanel
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
